@@ -7,13 +7,13 @@ services:
     ports:
       - 27017:27017
 
-  # app:
-  #   container_name: node-api
-  #   restart: always
-  #   build: .
-  #   ports:
-  #     - 3000:3000
-  #   depends_on: 
-  #     - mongo
-  #   links:
-  #     - mongo
+  app:
+    container_name: node-api
+    restart: always
+    build: .
+    ports:
+      - 3000:3000
+    depends_on: 
+      - mongo
+    links:
+      - mongo
