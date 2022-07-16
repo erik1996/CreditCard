@@ -6,7 +6,7 @@ const Joi = BaseJoi.extend(JoiDate);
 export const cardValidation = Joi.object().keys({
   cardNumber: Joi.string()
     .custom((value, helper) => {
-      const num = value.replaceAll(" ", "");
+      const num = value.replace(/\s/g, "");
       let arr = num
         .split("")
         .reverse()

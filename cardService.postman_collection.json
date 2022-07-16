@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "217ecbd6-0062-48ac-b3ca-b4d0aa4019ff",
+		"name": "cardService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21218601"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3005/card",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cardNumber\": \"4111 1111 1111 1111\",\n    \"cardHolderName\": \"\",\n    \"expirationDate\": \"12/22\",\n    \"limit\": 100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3005/card",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"card"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3005/card",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3005/card",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"card"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
