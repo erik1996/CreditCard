@@ -1,11 +1,29 @@
-import BaseJoi from 'joi';
-import JoiDate from '@joi/date';
+import BaseJoi from "joi";
+import JoiDate from "@joi/date";
 
 const Joi = BaseJoi.extend(JoiDate);
 
 export const cardValidation = Joi.object().keys({
-  cardNumber: Joi.string().regex(/^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})|4[0-9]{12}(?:[0-9]{3}){0,2}$/).required(),
+  cardNumber: Joi.string()
+    .custom((value, helper) => {
+      const num = value.replaceAll(" ", "");
+      let arr = num
+        .split("")
+        .reverse()
+        .map((x) => parseInt(x));
+      let lastDigit = arr.splice(0, 1)[0];
+      let sum = arr.reduce(
+        (acc, val, i) => (i % 2 !== 0 ? acc + val : acc + ((val * 2) % 9) || 9),
+        0
+      );
+      sum += lastDigit;
+      return sum % 10 === 0 ? true : helper.message("Card Number Is Incorrect");
+    })
+    .required(),
   cardHolderName: Joi.string().required(),
   limit: Joi.number().required(),
-  expirationDate: Joi.date().format("MM/YY").greater(Date.now() + 48 * 60000).required()
-})
+  expirationDate: Joi.date()
+    .format("MM/YY")
+    .greater(Date.now() + 48 * 60000)
+    .required(),
+});

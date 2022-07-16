@@ -1,4 +1,4 @@
-import { model, Schema, Model, Document } from 'mongoose';
+import { model, Schema, Model, Document } from "mongoose";
 
 interface ICard extends Document {
   cardNumber: string;
@@ -9,11 +9,11 @@ interface ICard extends Document {
 }
 
 const CardSchema: Schema = new Schema({
-  cardNumber: { type: String, required: true },
+  cardNumber: { type: String, index: true, unique: true, required: true },
   cardHolderName: { type: String, required: true },
   expirationDate: { type: String, required: true },
-  balanace: {type: Number, default: 0, required: true},
-  limit: {type: Number, default: 0, required: true}
+  balanace: { type: Number, default: 0, required: true },
+  limit: { type: Number, default: 0, required: true },
 });
 
-export default model<ICard>('Card', CardSchema);
+export default model<ICard>("Card", CardSchema);
