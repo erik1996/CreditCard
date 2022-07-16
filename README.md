@@ -33,12 +33,12 @@ curl --location --request POST 'http://localhost:3005/card' \
 }'
 ```
 
-# Get Cards List
+### Get Cards List
 
 ```
 curl --location --request GET 'http://localhost:3005/card'
 ```
 
-## Or You Can Run Postman Colletion
+### [Or You Can Run Postman Colletion](./cardService.postman_collection.json)
 
-### cardService.postman_collection.json
+
