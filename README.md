@@ -18,6 +18,10 @@ docker-compose -f ./docker-compose.yml up --build
 
 ```
 
+## Unit Test
+
+Now I just covered the routes because there’s not much of a logic. In real application I would also consider covering the controllers, especially if the logic gets more complex. Also I would add integration tests with database. And lastly, for front end application I may write some end-to-end tests.
+
 ## Request Example
 
 ### Create a New Card
