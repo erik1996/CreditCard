@@ -1,4 +1,4 @@
-#  Dockerised Node Server with MongoDB for credit card admin
+#  Dockerised Node Server with MongoDB for Credit Card Admin
 
 ## Quick Start
 
